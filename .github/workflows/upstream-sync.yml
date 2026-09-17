@@ -1,0 +1,72 @@
+name: 同步上游代码
+
+on:
+  schedule:
+    # 每天北京时间 11:10 检查一次原作者仓库。
+    - cron: '10 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: upstream-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: 获取 Fork 完整历史
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: 合并原作者主分支
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote add upstream https://github.com/liyupi/ai-model-world.git
+          git fetch upstream main
+
+          if git merge-base --is-ancestor upstream/main HEAD; then
+            echo "已经是最新版本"
+            exit 0
+          fi
+
+          git merge --no-edit upstream/main
+          git push origin main
+
+      - name: 合并失败时创建或更新 Issue
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = '上游代码自动同步失败';
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const body = `自动合并 \`liyupi/ai-model-world\` 的 \`main\` 分支失败，通常是 Fork 的自定义配置与上游修改发生冲突。\n\n运行记录：${runUrl}\n\n自动化没有强行覆盖任何文件，请手动解决冲突后关闭此 Issue。`;
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100,
+            });
+            const existing = issues.find((issue) => issue.title === title && !issue.pull_request);
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+              });
+            }
