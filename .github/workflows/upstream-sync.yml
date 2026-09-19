@@ -37,7 +37,43 @@ jobs:
             exit 0
           fi
 
-          git merge --no-edit upstream/main
+          # data/*.json 是两边定时任务各自生成的快照，不属于需要从上游合并的代码。
+          # 如果上游只有数据变化，直接成功结束，避免每天制造同一批合并冲突。
+          if git diff --quiet HEAD...upstream/main -- . ':(exclude,glob)data/*.json'; then
+            echo "上游只有自动生成的数据变化，跳过同步"
+            exit 0
+          fi
+
+          before_merge=$(git rev-parse HEAD)
+
+          # 先尝试正常合并。若冲突全部来自 data/*.json，则自动保留 Fork 自己的
+          # 数据快照；任何代码、文档或配置冲突仍然失败并进入下面的 Issue 提醒。
+          set +e
+          git merge --no-commit --no-ff upstream/main
+          merge_status=$?
+          set -e
+
+          if [ "$merge_status" -ne 0 ]; then
+            conflicts=$(git diff --name-only --diff-filter=U)
+            non_data_conflicts=$(printf '%s\n' "$conflicts" | grep -Ev '^data/[^/]+\.json$' || true)
+
+            if [ -z "$conflicts" ] || [ -n "$non_data_conflicts" ]; then
+              echo "::error::上游代码存在需要人工处理的冲突"
+              printf '%s\n' "$conflicts"
+              git merge --abort || true
+              exit 1
+            fi
+
+            echo "冲突仅涉及自动生成的数据文件，保留 Fork 数据"
+            git checkout --ours -- ':(glob)data/*.json'
+            git add -- ':(glob)data/*.json'
+          fi
+
+          # 即使某些数据文件能被 Git 自动合并，也统一恢复为合并前的 Fork 快照。
+          # 数据更新只交给“同步模型数据”工作流负责。
+          git restore --source="$before_merge" --staged --worktree -- ':(glob)data/*.json'
+
+          git commit --no-edit
           git push origin main
 
       - name: 合并失败时创建或更新 Issue
