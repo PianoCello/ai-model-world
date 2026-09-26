@@ -722,6 +722,11 @@ OpenRouter 的 ToS 措辞极宽，公开展示 LLM 元数据的站点有被解�
    这些是站外用户的作品，不是本站的评测结论。
 6. **封面 `<img>` 必须带 `referrerPolicy="no-referrer"`**。hdslb 有防盗链：带非 bilibili 的
    Referer 去取会 403，浏览器接着报 `ERR_BLOCKED_BY_ORB`，整块图白掉。不带 Referer 反而正常。
+7. **标题风险词黑名单（`isRiskyTitle`）。** 2026-09-26 那版 Toy 以「内容审核未通过（违法违规）」被驳回，
+   排查下来最可疑的是视频标题：818 条里有近百条是「不翻墙 / 免魔法 / 国内使用 Claude」「中转站、代充、拼车」
+   「越狱版无审查」这类绕开限制或灰色渠道的教程。现在两处都过这道闸：`pickVideos`（抓取时）
+   和 `videosFor`（渲染时，所以旧数据不用重抓）。境外品牌的标题只要带「免费」也一并拦掉。
+   **重新抓过视频之后，发 Toy 前把留下来的标题扫一眼**，有新花样就往 `RISKY_TITLE` 里加词。
 
 接口现状（2026-09 实测）：搜索 `x/web-interface/search/type` 可用，**要先访问一次 bilibili.com
 换 `buvid3` cookie**，间隔 2.5 秒跑 143 个请求没被掐。空间接口 `x/space/arc/search` 已经基本

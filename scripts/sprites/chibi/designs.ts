@@ -236,7 +236,7 @@ export const DESIGNS: Record<string, Design> = {
     key: 'xai',
     name: 'Grok 娘 · Ani',
     basis: 'official',
-    note: 'xAI 官方伴侣角色 Ani：金色双马尾、蓝眼、黑色哥特洋装，别一枚 X 徽章',
+    note: 'xAI 官方二次元形象 Ani：金色双马尾、蓝眼、黑色哥特洋装，别一枚 X 徽章',
     hair: '#f3d27b',
     hairStyle: { back: 'twintails', fringe: 'soft', locks: 'mid', tieMat: 'accent' },
     eye: '#3a6ad8',

@@ -21,7 +21,7 @@ const CHARACTER_SOURCES: { who: string; basis: string; href?: string }[] = [
   },
   { who: 'DeepSeek 鲸鱼娘', basis: '社区二创形象「DeepSeek娘」', href: 'https://zh.moegirl.org.cn/DeepSeek%E5%A8%98' },
   { who: '智谱 Z 狐娘', basis: '社区流传的 Z.ai 黑狐娘形象' },
-  { who: 'Grok 娘 · Ani', basis: 'xAI 在 Grok 里推出的官方伴侣角色 Ani' },
+  { who: 'Grok 娘', basis: 'xAI 在 Grok 里推出的官方二次元形象' },
   { who: '豆包', basis: '字节跳动豆包的官方 3D 形象' },
 ];
 
