@@ -86,6 +86,33 @@ function fold(s: string): string {
 const isAlnum = (c: string | undefined) => c != null && /[a-z0-9]/.test(c);
 
 /**
+ * 标题带这些词的视频一律不挂。
+ *
+ * 搜「{模型名} 测评」会混进一批「免魔法 / 不翻墙 / 国内使用 Claude」「中转站、代充」
+ * 「越狱版无审查」之类的标题，讲的是怎么绕开限制用境外服务或灰色渠道，不是实测。
+ * 站点做成 B 站 Toy 之后，这类标题会让整站以「违法违规」被驳回（2026-09 实际发生过）。
+ * 宁可错杀：少挂一条视频无所谓，挂错一条整站下架。
+ */
+const RISKY_TITLE = new RegExp(
+  [
+    '翻墙|梯子|科学上网|vpn|魔法|机场|节点',
+    '国内.{0,4}(使用|用|畅玩|直连|访问|注册|订阅|充值|免费)',
+    '中转|反代|代充|充值|号池|共享账号|拼车|公益|包月|一元一天|不限次|无限(额度|使用|用|续杯|出图|token|制)|续杯|名额|付费使用|安全订阅|不封号|防封|海外信用卡|海外会员|🆓',
+    '白嫖|薅|羊毛|0元|零元|最低|低价接入|半价|官方一半|1毛|一毛',
+    '作弊',
+    '越狱|无审查|无审核|随便用|破限|解除限制|解锁|尺度|擦边|18禁|r18|nsfw|绅士|色色',
+  ].join('|'),
+  'i',
+);
+
+/** 境外模型的「免费用」教程基本都是灰色渠道，单独收紧 */
+const FOREIGN_BRAND = /claude|gpt|gemini|grok|nano\s*banana|openai|sora|codex/i;
+
+export function isRiskyTitle(title: string): boolean {
+  return RISKY_TITLE.test(title) || (FOREIGN_BRAND.test(title) && /免费/.test(title));
+}
+
+/**
  * 折叠后的 haystack 里是否作为一个「完整的词」出现过 needle。
  *
  * 边界检查是必须的：折叠之后 `grok4` 是 `grok46` 的前缀，
@@ -124,7 +151,7 @@ export function pickVideos(
 
   const seen = new Set<string>();
   const hits = candidates.filter((v) => {
-    if (seen.has(v.bvid)) return false;
+    if (seen.has(v.bvid) || isRiskyTitle(v.title)) return false;
     const title = fold(v.title);
     if (!needles.some((n) => containsWord(title, n))) return false;
     seen.add(v.bvid);
@@ -148,7 +175,8 @@ export function videosFor(
   modelName: string,
 ): { videos: VideoRecord[]; queryName: string } {
   const entry = library.byModel[modelId];
-  return { videos: entry?.videos ?? [], queryName: entry?.matchedName ?? modelName };
+  const videos = (entry?.videos ?? []).filter((v) => !isRiskyTitle(v.title));
+  return { videos, queryName: entry?.matchedName ?? modelName };
 }
 
 /** 播放量：1.3 万 / 1.2 亿。B 站自己也是这么显示的。 */

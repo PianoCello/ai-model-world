@@ -279,7 +279,7 @@ export default async function ModelRoomPage({
         {/* 房间 */}
         <section className="mt-8">
           <h2 className="mb-3 text-sm text-[var(--color-parchment)]">
-            他的房间
+            她的房间
           </h2>
           <div className="pixel-panel-dark overflow-x-auto p-6">
             <div

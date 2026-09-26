@@ -13,7 +13,7 @@ import type { Continent } from '@/lib/types';
 
 export interface VendorProfile {
   nameZh: string;
-  /** 形象母题，决定角色的种族特征、发色与服装基调。合成管线按此选择 LPC 图层组合。 */
+  /** 形象母题，决定家徽图案。角色的娘化形象另有一张表：`scripts/sprites/chibi/designs.ts`。 */
   motif: string;
   /** 家族纹章与服饰主色 */
   accentColor: string;

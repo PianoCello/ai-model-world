@@ -1,5 +1,3 @@
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
 import { GroundBackdrop } from '@/components/world/Ground';
 import { SiteHeader } from '@/components/world/SiteHeader';
 import { DEFAULT_LANG, getDict } from '@/lib/i18n';
@@ -9,52 +7,27 @@ export const metadata = { title: '素材署名' };
 /**
  * 素材署名页。
  *
- * 角色由 Liberated Pixel Cup 的分层素材合成，其中 OGA-BY 3.0 许可的部分要求署名。
- * 名单的唯一事实来源是 `assets/lpc/CREDITS.md`（由 vendoring 脚本生成），
- * 这里在构建期把它读出来渲染，不另抄一份——抄了就会两处不一致。
+ * 角色是本项目逐像素手绘的原创像素画（`scripts/sprites/chibi/`），不含第三方美术素材；
+ * 但有一部分形象借用了社区里已经流传开的娘化设定，这里写明出处。
+ * 这张表与 `scripts/sprites/chibi/designs.ts` 里 `basis` 为 community / official 的条目一一对应，
+ * 改那边的时候同步改这里。
  */
 
-interface AssetRow {
-  asset: string;
-  authors: string;
-  license: string;
-  sources: { label: string; href: string }[];
-}
-
-const CREDITS_PATH = join(process.cwd(), 'assets', 'lpc', 'CREDITS.md');
-
-function parseCredits(md: string): { authors: string[]; rows: AssetRow[] } {
-  const lines = md.split('\n');
-
-  const authorsHeading = lines.findIndex((l) => l.startsWith('## 作者名单'));
-  const authorsLine = lines.slice(authorsHeading + 1).find((l) => l.trim().length > 0) ?? '';
-  const authors = authorsLine
-    .split('、')
-    .map((s) => s.trim())
-    .filter(Boolean);
-
-  const rows: AssetRow[] = [];
-  for (const line of lines) {
-    if (!line.startsWith('| `')) continue;
-    const cells = line
-      .slice(1, -1)
-      .split(/(?<!\\)\|/)
-      .map((c) => c.trim().replace(/\\\|/g, '|'));
-    if (cells.length < 5) continue;
-    const [asset, authorsCell, license, , sourceCell] = cells;
-    const sources: AssetRow['sources'] = [];
-    for (const m of sourceCell.matchAll(/\[([^\]]+)\]\(([^)]+)\)/g)) {
-      sources.push({ label: m[1], href: m[2] });
-    }
-    rows.push({ asset: asset.replace(/`/g, ''), authors: authorsCell, license, sources });
-  }
-  return { authors, rows };
-}
+const CHARACTER_SOURCES: { who: string; basis: string; href?: string }[] = [
+  {
+    who: 'GPT 酱、GPT Image 娘、Claude 娘、Gemini 娘',
+    basis: 'linux.do 社区「AI娘们的互动小剧场」系列里的形象',
+    href: 'https://linux.do/t/topic/2052255',
+  },
+  { who: 'DeepSeek 鲸鱼娘', basis: '社区二创形象「DeepSeek娘」', href: 'https://zh.moegirl.org.cn/DeepSeek%E5%A8%98' },
+  { who: '智谱 Z 狐娘', basis: '社区流传的 Z.ai 黑狐娘形象' },
+  { who: 'Grok 娘', basis: 'xAI 在 Grok 里推出的官方二次元形象' },
+  { who: '豆包', basis: '字节跳动豆包的官方 3D 形象' },
+];
 
 export default function CreditsPage() {
   const lang = DEFAULT_LANG;
   const dict = getDict(lang);
-  const { authors, rows } = parseCredits(readFileSync(CREDITS_PATH, 'utf8'));
 
   return (
     <main className="relative min-h-dvh">
@@ -64,24 +37,31 @@ export default function CreditsPage() {
 
         <div className="mx-auto w-full max-w-5xl px-4 pb-16 pt-4 sm:px-8">
           <h1 className="pixel-outline mb-2 mt-4 text-2xl sm:text-3xl">{dict.footer.credits}</h1>
-          <p className="mb-6 max-w-2xl text-[13px] leading-relaxed text-[var(--color-ghost)]">
-            本站的像素角色由{' '}
-            <a
-              href="https://lpc.opengameart.org"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--color-parchment)] underline decoration-dotted underline-offset-2"
-            >
-              Liberated Pixel Cup
-            </a>{' '}
-            社区的分层素材程序化合成。只使用了提供 CC0 或 OGA-BY 3.0 许可选项的素材，
-            下面是全部 {rows.length} 个素材目录与 {authors.length} 位作者。
-            合成器为本项目自研，未使用上游生成器的任何代码。
-          </p>
-
           <section className="pixel-panel-dark mb-6 p-4">
-            <h2 className="mb-2 font-pixel text-[14px] text-[var(--color-gold)]">作者</h2>
-            <p className="text-[13px] leading-relaxed text-[var(--color-parchment)]">{authors.join('、')}</p>
+            <h2 className="mb-2 font-pixel text-[14px] text-[var(--color-gold)]">角色形象</h2>
+            <p className="mb-2 text-[13px] leading-relaxed text-[var(--color-parchment)]">
+              全部角色都是本站手绘的原创像素画。没有公认娘化形象的厂商，按它的标志与品牌色设计；
+              发饰上的标志是像素化的改写，只用于辨认，商标归各自所有者。下面这些形象借用了已有的设定：
+            </p>
+            <ul className="space-y-1 text-[13px] leading-relaxed text-[var(--color-parchment)]">
+              {CHARACTER_SOURCES.map((c) => (
+                <li key={c.who}>
+                  {c.who}：
+                  {c.href ? (
+                    <a
+                      href={c.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline decoration-dotted underline-offset-2 hover:text-[var(--color-gold)]"
+                    >
+                      {c.basis}
+                    </a>
+                  ) : (
+                    c.basis
+                  )}
+                </li>
+              ))}
+            </ul>
           </section>
 
           <section className="pixel-panel-dark mb-6 p-4">
@@ -122,41 +102,6 @@ export default function CreditsPage() {
             </ul>
           </section>
 
-          <section className="pixel-panel-dark overflow-x-auto p-4">
-            <h2 className="mb-2 font-pixel text-[14px] text-[var(--color-gold)]">逐素材明细</h2>
-            <table className="w-full text-left text-[12px] leading-snug">
-              <thead className="text-[var(--color-ghost)]">
-                <tr>
-                  <th className="pb-1 pr-3 font-normal">素材</th>
-                  <th className="pb-1 pr-3 font-normal">作者</th>
-                  <th className="pb-1 pr-3 font-normal">许可</th>
-                  <th className="pb-1 font-normal">来源</th>
-                </tr>
-              </thead>
-              <tbody className="text-[var(--color-parchment)]">
-                {rows.map((r) => (
-                  <tr key={r.asset} className="border-t border-white/5 align-top">
-                    <td className="py-1 pr-3 font-mono text-[12px] text-[var(--color-ghost)]">{r.asset}</td>
-                    <td className="py-1 pr-3">{r.authors}</td>
-                    <td className="py-1 pr-3 whitespace-nowrap">{r.license}</td>
-                    <td className="py-1">
-                      {r.sources.map((s, i) => (
-                        <a
-                          key={`${s.href}-${i}`}
-                          href={s.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mr-1.5 underline decoration-dotted underline-offset-2 hover:text-[var(--color-gold)]"
-                        >
-                          [{s.label}]
-                        </a>
-                      ))}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </section>
         </div>
       </div>
     </main>

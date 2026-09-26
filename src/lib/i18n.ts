@@ -319,7 +319,7 @@ const zh: Dict = {
 
   footer: {
     dataFrom: '数据来自',
-    artFrom: '角色美术',
+    artFrom: '字体',
     credits: '素材署名',
     author: '作者',
     alsoVisit: '也看看',

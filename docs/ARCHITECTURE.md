@@ -30,12 +30,12 @@
    Vercel 构建          EdgeOne 构建
    （海外访问）          （国内访问）
         │                   │
-        └── prebuild: scripts/sprites 由 data/models.json + assets/lpc
-            确定性合成 485 张精灵图（约 14 秒），再跑 next build
+        └── prebuild: scripts/sprites 由 data/models.json + 角色设定表
+            确定性画出 606 张精灵图（约 7 秒），再跑 next build
 ```
 
-**精灵图不提交进仓库。** 它是可再生产物：由已提交的 `assets/lpc`（2.86 MB）
-与已提交的 `data/models.json` 确定性合成，整轮 14 秒。
+**精灵图不提交进仓库。** 它是可再生产物：由已提交的角色设定与字符画（`scripts/sprites/chibi/`）
+与已提交的 `data/models.json` 确定性生成，整轮约 7 秒。
 不提交的理由是合成器只要改一次绘制逻辑，就会一次性产生十几 MB 的新 blob，
 几次迭代就能把仓库撑爆。构建时生成还有一个额外好处：产物必然与数据一致，不会脱节。
 
