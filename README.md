@@ -58,7 +58,7 @@ AI 模型多到记不住，新闻里天天蹦出新名字，可你很难说清�
 | [docs/research/reference-sites-2026.md](docs/research/reference-sites-2026.md) | 参考网站与信息设计方案，当前的能力条改造出自这里 |
 | [docs/llm-metadata-sources-research.md](docs/llm-metadata-sources-research.md) | 元数据源调研原始报告（结论均经 `curl` 实测） |
 | [docs/data-sources-research.md](docs/data-sources-research.md) | 榜单与参数量调研原始报告 |
-| [docs/pixel-character-pipeline-research.md](docs/pixel-character-pipeline-research.md) | 像素角色合成管线调研报告 |
+| [docs/pixel-character-pipeline-research.md](docs/pixel-character-pipeline-research.md) | 像素角色合成管线调研报告（LPC 方案，2026-09-26 已被手绘娘化形象取代，留作历史） |
 
 ---
 
@@ -71,7 +71,7 @@ AI 模型多到记不住，新闻里天天蹦出新名字，可你很难说清�
 | 编程测评（Coding / Agentic Coding） | [LiveBench](https://livebench.ai) | Apache-2.0 |
 | 参数量与开源许可 | [Hugging Face](https://huggingface.co) | 逐模型判断 |
 | 新模型发现与发布日期交叉校验 | OpenRouter · Vercel AI Gateway · LiteLLM | 仅用于发现，不转存展示 |
-| 角色美术素材 | [Liberated Pixel Cup](https://lpc.opengameart.org) | CC0 / OGA-BY，署名见 `assets/lpc/CREDITS.md`，站内 `/credits/` 页由它生成 |
+| 角色形象 | 本站手绘原创像素画（`scripts/sprites/chibi/`） | 借用的社区 / 官方娘化形象出处见站内 `/credits/` |
 | 中文像素字体 | [Fusion Pixel Font](https://github.com/TakWolf/fusion-pixel-font) | OFL-1.1 |
 
 本项目**不使用** Artificial Analysis 的任何数据（其条款禁止再分发），
@@ -86,7 +86,7 @@ npm install
 npm run dev
 ```
 
-`npm run dev` 会先由 `prebuild` 钩子合成精灵图（约 13 秒），再启动开发服务器。
+`npm run dev` 会先由 `prebuild` 钩子生成精灵图（约 7 秒），再启动开发服务器。
 本机 3000 端口常被占用时会自动改用 3001。
 
 > `loadSnapshot()` 与 `listSpriteSlugs()` 只在生产构建里缓存；开发时每次请求重读磁盘，

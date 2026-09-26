@@ -18,12 +18,8 @@ const DATA_SOURCES = [
   },
 ];
 
+/** 角色是本站原创像素画，不在这一行；借用了哪些社区形象写在 /credits/。 */
 const ART_SOURCES = [
-  {
-    name: 'Liberated Pixel Cup',
-    license: 'CC0 / OGA-BY 3.0',
-    href: 'https://lpc.opengameart.org',
-  },
   {
     name: 'Fusion Pixel Font',
     license: 'OFL-1.1',
@@ -105,9 +101,9 @@ function ExtLink({ href, children }: { href: string; children: React.ReactNode }
 /**
  * 全站页脚：数据与美术的出处。
  *
- * 这不是装饰。Epoch 的 CC-BY 与 LPC 素材的 OGA-BY 都是「署名即可用」的许可，
+ * 这不是装饰。Epoch 与 LMArena 的 CC-BY 是「署名即可用」的许可，
  * 署名做在每一页的页脚是最稳妥的履约方式——读者截任何一页的图，出处都在。
- * 逐资产的作者名单太长，放在 /credits/ 单页，这里只给入口。
+ * 角色形象借用了哪些社区设定放在 /credits/ 单页，这里只给入口。
  */
 export function SiteFooter() {
   const dict = getDict(DEFAULT_LANG);

@@ -17,34 +17,27 @@ export interface FrameGrid {
   rows: number;
 }
 
-/** Which visual traits were applied, mirrored for tooltips and the credits page. */
+/** Which character and which data-driven props a sheet carries; metadata for tooltips and QA. */
 export interface SpriteAppearance {
-  /** LPC head species picked from the vendor motif, e.g. `human`, `lizard`. */
-  motifFamily: string;
-  /** LPC body frame: `child` | `teen` | `female` | `male`. */
-  body: string;
-  /** 1–5, derived from parameter count (or price when undisclosed). */
+  /** Design key from `scripts/sprites/chibi/designs.ts`: a vendor id, `vendor/variant`, or the vendor id of a fallback look. */
+  character: string;
+  /** What the look is based on: an established community character, an official mascot, the vendor's logo, or the generic fallback. */
+  basis: 'community' | 'official' | 'icon' | 'fallback';
+  /** 1–5 from `buildSizeScale`. The sheet itself is the same size for every tier; the site scales it. */
   sizeTier: number;
-  /** 1–5, derived from output price. Drives garment richness. */
-  priceTier: number;
   /** 1-based ECI rank, or null when the model has no ECI score. */
   rank: number | null;
   crown: 'gold' | 'laurel' | 'silver' | null;
   flags: {
-    fresh: boolean;
-    retired: boolean;
-    opaqueParams: boolean;
+    /** Eyes open. Text-only models keep them closed. */
     imageIn: boolean;
+    /** Headphones. */
     audio: boolean;
+    /** Paintbrush. */
     imageOut: boolean;
-    toolCall: boolean;
-    reasoning: boolean;
-    /** Thinking-halo ring count, 0–3, from `signsOf().halo` in `derive.ts`. */
-    haloLayers: number;
+    /** Key. */
     openWeights: boolean;
   };
-  /** Chosen LPC palette ramp per material. */
-  ramps: Record<string, string>;
 }
 
 export interface AnchorBox {
@@ -85,8 +78,6 @@ export interface SpriteEntry {
   sha256: string;
   anchors: SpriteAnchors;
   appearance: SpriteAppearance;
-  /** Catalog item ids that went into the sheet, for per-character attribution. */
-  layers: string[];
 }
 
 export interface SpriteManifest {
@@ -94,21 +85,22 @@ export interface SpriteManifest {
   /** Bumped whenever the composer's output would change for identical input. */
   pipeline: string;
   /**
-   * False: the PNGs carry identity only — body, clothes, eyewear, headset,
-   * brush, key, tool belt. The five state overlays (crown, thinking halo, newborn
+   * False: the PNGs carry identity only — the vendor's character plus the
+   * headset, brush, key and open/closed eyes. The five state overlays (crown, thinking halo, newborn
    * sparkle, fog cloak, retired ghost) are *not* drawn in, and the site must
    * render them itself over the sprite, using `anchors` for placement.
    *
    * State changes with the leaderboard and the calendar; baking it in would mean
-   * re-rendering all 485 sheets every time a rank moves. `appearance.crown` and
+   * re-rendering every sheet every time a rank moves. `appearance.crown` and
    * `appearance.flags` still carry the computed values as metadata.
    */
   overlaysBaked: boolean;
-  /** Pinned upstream LPC commit the art came from. */
-  catalogCommit: string;
   frame: FrameGrid;
   rows: Record<SpriteRow, number>;
-  /** Frames in one walk loop. */
+  /**
+   * Frames in one loop row. The characters are drawn front-facing only, so the
+   * four facing rows all carry the same nine-frame bob-and-blink loop.
+   */
   walkFrames: number;
   sprites: Record<string, SpriteEntry>;
 }

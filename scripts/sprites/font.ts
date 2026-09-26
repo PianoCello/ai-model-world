@@ -5,7 +5,7 @@
 
 import { type Raster, type Rgba, setPixel } from './raster.ts';
 
-const GLYPHS: Record<string, string> = {
+export const GLYPHS: Record<string, string> = {
   '0': '###|#.#|#.#|#.#|###',
   '1': '.#.|##.|.#.|.#.|###',
   '2': '###|..#|###|#..|###',

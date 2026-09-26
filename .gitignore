@@ -21,10 +21,14 @@
 # B 站 Toy 的上传包，由 npm run toy:build 从 .next-toy 再生产
 /.toy-pkg/
 
-# 精灵图是可再生产物：由 assets/lpc（已提交）+ data/models.json（已提交）确定性合成，
-# 整轮约 14 秒。不提交是因为合成器一旦改动就会一次性产生 15 MB 新 blob，
+# 精灵图是可再生产物：由 scripts/sprites/chibi/（角色设定与字符画）+ data/models.json 确定性生成，
+# 整轮约 7 秒。不提交是因为画法一旦改动就会一次性产生近 8 MB 新 blob，
 # 几次迭代就能把仓库撑爆。构建时由 prebuild 钩子生成。
 /public/sprites/
+
+# npm run sprites:review 的中间产物。只提交那张总览 docs/samples/chibi-review.png 留档。
+/docs/samples/chibi-review.html
+/docs/samples/chibi/
 
 # 搜索索引同理：由 data/models.json 确定性生成，约 52 KB，跟着 sprites 一起重做
 /public/search-index.json
