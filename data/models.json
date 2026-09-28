@@ -447,7 +447,7 @@
     {
       "id": "frontier_code",
       "inEci": true,
-      "models": 39,
+      "models": 40,
       "randomBaseline": 0,
       "releaseDate": "2026-06-08",
       "scoreCeiling": 100,
@@ -651,7 +651,7 @@
     {
       "id": "livebench_agentic_coding",
       "inEci": false,
-      "models": 103,
+      "models": 104,
       "randomBaseline": null,
       "releaseDate": null,
       "scoreCeiling": null,
@@ -663,7 +663,7 @@
     {
       "id": "livebench_coding",
       "inEci": false,
-      "models": 123,
+      "models": 124,
       "randomBaseline": null,
       "releaseDate": null,
       "scoreCeiling": null,
@@ -1083,7 +1083,7 @@
     {
       "id": "terminal_bench",
       "inEci": false,
-      "models": 55,
+      "models": 56,
       "randomBaseline": null,
       "releaseDate": null,
       "scoreCeiling": null,
@@ -1213,7 +1213,7 @@
       "unit": "pct"
     }
   ],
-  "generatedAt": "2026-09-28T07:34:09.486Z",
+  "generatedAt": "2026-09-28T20:13:19.370Z",
   "models": [
     {
       "benchmarks": {
@@ -24155,6 +24155,149 @@
         "swe_bench_pro": null,
         "swe_bench_vendor": null,
         "swe_bench_verified": null,
+        "webdev_arena_elo": null
+      },
+      "capabilities": {
+        "promptCaching": true,
+        "reasoning": true,
+        "structuredOutput": null,
+        "toolCall": true
+      },
+      "coding": [
+        {
+          "attribution": "vendor-self-reported",
+          "league": "terminal_bench",
+          "score": 70.6,
+          "source": "models.dev",
+          "sourceUrl": "https://www.anthropic.com/claude-sonnet-5-5",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "livebench_coding",
+          "score": 91.37,
+          "source": "livebench",
+          "sourceUrl": "https://livebench.ai/#/?release=2026-06-25",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "livebench_agentic_coding",
+          "score": 56.31,
+          "source": "livebench",
+          "sourceUrl": "https://livebench.ai/#/?release=2026-06-25",
+          "unit": "pct"
+        },
+        {
+          "attribution": "vendor-self-reported",
+          "league": "frontier_code",
+          "score": 46.2,
+          "source": "models.dev",
+          "sourceUrl": "https://www.anthropic.com/claude-sonnet-5-5",
+          "unit": "pct"
+        }
+      ],
+      "contextWindow": 1000000,
+      "firstSeenAt": "2026-09-28T20:13:19.370Z",
+      "id": "anthropic/claude-sonnet-5-5",
+      "knowledgeCutoff": "2026-06",
+      "license": null,
+      "maxOutput": 128000,
+      "modalities": {
+        "input": [
+          "image",
+          "pdf",
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "name": "Claude Sonnet 5.5",
+      "openWeights": false,
+      "params": {
+        "activeB": null,
+        "confidence": "estimated",
+        "sizeTier": 3,
+        "sizeTierBasis": "price",
+        "totalB": null
+      },
+      "pricing": {
+        "cachedInputPerMTok": 0.2,
+        "inputPerMTok": 2,
+        "outputPerMTok": 10
+      },
+      "provenance": {
+        "capabilities.promptCaching": "derived",
+        "capabilities.reasoning": "models.dev",
+        "capabilities.toolCall": "models.dev",
+        "coding": "derived",
+        "contextWindow": "models.dev",
+        "knowledgeCutoff": "models.dev",
+        "maxOutput": "models.dev",
+        "modalities": "models.dev",
+        "name": "models.dev",
+        "openWeights": "models.dev",
+        "params.sizeTier": "derived",
+        "pricing.cachedInputPerMTok": "models.dev",
+        "pricing.inputPerMTok": "models.dev",
+        "pricing.outputPerMTok": "models.dev",
+        "releaseDate": "models.dev",
+        "releaseDatePrecision": "models.dev",
+        "scores": "derived",
+        "vendorId": "derived"
+      },
+      "releaseDate": "2026-09-28",
+      "releaseDatePrecision": "day",
+      "retiredAt": null,
+      "scores": [
+        {
+          "attribution": "vendor-self-reported",
+          "league": "frontier_code",
+          "score": 46.2,
+          "source": "models.dev",
+          "sourceUrl": "https://www.anthropic.com/claude-sonnet-5-5",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "livebench_agentic_coding",
+          "score": 56.31,
+          "source": "livebench",
+          "sourceUrl": "https://livebench.ai/#/?release=2026-06-25",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "livebench_coding",
+          "score": 91.37,
+          "source": "livebench",
+          "sourceUrl": "https://livebench.ai/#/?release=2026-06-25",
+          "unit": "pct"
+        },
+        {
+          "attribution": "vendor-self-reported",
+          "league": "terminal_bench",
+          "score": 70.6,
+          "source": "models.dev",
+          "sourceUrl": "https://www.anthropic.com/claude-sonnet-5-5",
+          "unit": "pct"
+        }
+      ],
+      "slug": "anthropic-claude-sonnet-5-5",
+      "trainingComputeFlop": null,
+      "vendorId": "anthropic"
+    },
+    {
+      "benchmarks": {
+        "aime": null,
+        "arc_agi_2": null,
+        "eci": null,
+        "fiction_live": null,
+        "gpqa_diamond": null,
+        "swe_bench_pro": null,
+        "swe_bench_vendor": null,
+        "swe_bench_verified": null,
         "webdev_arena_elo": 1236.61
       },
       "capabilities": {
@@ -29224,12 +29367,13 @@
         "pricing.outputPerMTok": "openrouter",
         "releaseDate": "epoch.ai",
         "releaseDatePrecision": "epoch.ai",
+        "retiredAt": "derived",
         "scores": "derived",
         "vendorId": "derived"
       },
       "releaseDate": "2025-01-20",
       "releaseDatePrecision": "day",
-      "retiredAt": null,
+      "retiredAt": "2026-09-28",
       "scores": [
         {
           "attribution": "third-party",
@@ -30623,7 +30767,7 @@
       "id": "deepseek/deepseek-v3.1-terminus",
       "knowledgeCutoff": null,
       "license": null,
-      "maxOutput": 32768,
+      "maxOutput": 147456,
       "modalities": {
         "input": [
           "text"
@@ -30654,7 +30798,7 @@
         "modalities": "openrouter",
         "name": "derived",
         "params.sizeTier": "derived",
-        "pricing.cachedInputPerMTok": "openrouter",
+        "pricing.cachedInputPerMTok": "vercel-gateway",
         "pricing.inputPerMTok": "litellm",
         "pricing.outputPerMTok": "litellm",
         "releaseDate": "vercel-gateway",
@@ -31165,7 +31309,7 @@
       "id": "deepseek/deepseek-v3.2-exp",
       "knowledgeCutoff": null,
       "license": null,
-      "maxOutput": 65536,
+      "maxOutput": 147456,
       "modalities": {
         "input": [
           "text"
@@ -34123,8 +34267,8 @@
       },
       "pricing": {
         "cachedInputPerMTok": 0.006,
-        "inputPerMTok": 0.24,
-        "outputPerMTok": 1.08
+        "inputPerMTok": 0.255552,
+        "outputPerMTok": 1.1592
       },
       "provenance": {
         "benchmarks.eci": "epoch.ai",
@@ -43165,7 +43309,7 @@
         "totalB": 25.81
       },
       "pricing": {
-        "cachedInputPerMTok": 0.049,
+        "cachedInputPerMTok": 0.05,
         "inputPerMTok": 0.1,
         "outputPerMTok": 0.34
       },
@@ -48661,7 +48805,6 @@
       "maxOutput": 943718,
       "modalities": {
         "input": [
-          "audio",
           "image",
           "pdf",
           "text",
@@ -49010,7 +49153,6 @@
       "maxOutput": 943718,
       "modalities": {
         "input": [
-          "audio",
           "image",
           "pdf",
           "text",
@@ -49044,8 +49186,8 @@
         "pricing.cachedInputPerMTok": "litellm",
         "pricing.inputPerMTok": "litellm",
         "pricing.outputPerMTok": "litellm",
-        "releaseDate": "openrouter",
-        "releaseDatePrecision": "openrouter",
+        "releaseDate": "vercel-gateway",
+        "releaseDatePrecision": "vercel-gateway",
         "vendorId": "derived"
       },
       "releaseDate": "2026-09-02",
@@ -52832,8 +52974,8 @@
       },
       "pricing": {
         "cachedInputPerMTok": null,
-        "inputPerMTok": 0.34209,
-        "outputPerMTok": 0.45612
+        "inputPerMTok": 0.34134,
+        "outputPerMTok": 0.45512
       },
       "provenance": {
         "capabilities.promptCaching": "derived",
@@ -60621,12 +60763,11 @@
         "pricing.outputPerMTok": "litellm",
         "releaseDate": "openrouter",
         "releaseDatePrecision": "openrouter",
-        "retiredAt": "derived",
         "vendorId": "derived"
       },
       "releaseDate": "2026-09-08",
       "releaseDatePrecision": "day",
-      "retiredAt": "2026-09-24",
+      "retiredAt": null,
       "scores": [],
       "slug": "nex-agi-nex-n2-5-mini",
       "trainingComputeFlop": null,
@@ -60692,12 +60833,11 @@
         "pricing.outputPerMTok": "litellm",
         "releaseDate": "openrouter",
         "releaseDatePrecision": "openrouter",
-        "retiredAt": "derived",
         "vendorId": "derived"
       },
       "releaseDate": "2026-09-08",
       "releaseDatePrecision": "day",
-      "retiredAt": "2026-09-24",
+      "retiredAt": null,
       "scores": [],
       "slug": "nex-agi-nex-n2-5-pro",
       "trainingComputeFlop": null,
@@ -94450,43 +94590,43 @@
   ],
   "sources": {
     "derived": {
-      "fetchedAt": "2026-09-28T07:34:09.486Z",
+      "fetchedAt": "2026-09-28T20:13:19.370Z",
       "note": "管线内推导的字段（规模档位、缓存能力、退役判定）",
       "ok": true
     },
     "epoch.ai": {
-      "fetchedAt": "2026-09-28T07:34:09.486Z",
+      "fetchedAt": "2026-09-28T20:13:19.370Z",
       "note": "ZIP 88 个条目；取到 7/7 个指标；编程赛制 9 个；全榜单 77 个；训练算力 326 行；去重后 409 个模型实体；合规拦截 1 个文件",
       "ok": true
     },
     "huggingface": {
-      "fetchedAt": "2026-09-28T07:34:09.486Z",
+      "fetchedAt": "2026-09-28T20:13:19.370Z",
       "note": "请求 164 个开源模型，成功 160，失败 4",
       "ok": true
     },
     "litellm": {
-      "fetchedAt": "2026-09-28T07:34:09.486Z",
-      "note": "4394 条（对话类 3502 条）；用作新模型的第三方佐证，以及 models.dev 缺项时的定价/上下文兜底",
+      "fetchedAt": "2026-09-28T20:13:19.370Z",
+      "note": "4409 条（对话类 3517 条）；用作新模型的第三方佐证，以及 models.dev 缺项时的定价/上下文兜底",
       "ok": true
     },
     "livebench": {
-      "fetchedAt": "2026-09-28T07:34:09.486Z",
+      "fetchedAt": "2026-09-28T20:13:19.370Z",
       "note": "Apache-2.0 / DATASHEET 明文「no copyrights on the data」。采用 6 个同期 release（2026-06-25, 2026-01-08, 2025-12-23, 2025-11-25, 2025-05-30, 2025-04-25）；跳过题目集换代前的 5 个（2024-06-24, 2024-07-26, 2024-08-31, 2024-11-25, 2025-04-02）——实测跨这个断点同一模型的 Coding 分中位差 27.6 分，不可同池。",
       "ok": true
     },
     "lmarena": {
-      "fetchedAt": "2026-09-28T07:34:09.486Z",
+      "fetchedAt": "2026-09-28T20:13:19.370Z",
       "note": "7/7 个分榜，共 320 条 Arena 分",
       "ok": true
     },
     "models.dev": {
-      "fetchedAt": "2026-09-28T07:34:09.486Z",
-      "note": "models.json 431 条；api.json 225 provider / 8255 条；benchmarks[] 1076 条，已拦截 AA 血缘 173 条，非编程口径跳过 546 条",
+      "fetchedAt": "2026-09-28T20:13:19.370Z",
+      "note": "models.json 432 条；api.json 225 provider / 8277 条；benchmarks[] 1082 条，已拦截 AA 血缘 174 条，非编程口径跳过 549 条",
       "ok": true
     },
     "openrouter": {
-      "fetchedAt": "2026-09-28T07:34:09.486Z",
-      "note": "458 条；已剔除 artificial_analysis 189 处（AA ToS 合规）；用于新模型发现、发布日期投票，以及 models.dev 缺项时的定价/上下文/模态兜底",
+      "fetchedAt": "2026-09-28T20:13:19.370Z",
+      "note": "460 条；已剔除 artificial_analysis 189 处（AA ToS 合规）；用于新模型发现、发布日期投票，以及 models.dev 缺项时的定价/上下文/模态兜底",
       "ok": true
     },
     "override": {
@@ -94495,8 +94635,8 @@
       "ok": true
     },
     "vercel-gateway": {
-      "fetchedAt": "2026-09-28T07:34:09.486Z",
-      "note": "391 条（language 265 条）；用于新模型发现、发布日期投票，以及 models.dev 缺项时的定价/上下文/模态兜底",
+      "fetchedAt": "2026-09-28T20:13:19.370Z",
+      "note": "390 条（language 264 条）；用于新模型发现、发布日期投票，以及 models.dev 缺项时的定价/上下文/模态兜底",
       "ok": true
     }
   },
