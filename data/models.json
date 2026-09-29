@@ -39,7 +39,7 @@
     {
       "id": "ale_bench",
       "inEci": false,
-      "models": 144,
+      "models": 145,
       "randomBaseline": null,
       "releaseDate": "2025-06-10",
       "scoreCeiling": null,
@@ -63,7 +63,7 @@
     {
       "id": "apex_agents",
       "inEci": true,
-      "models": 35,
+      "models": 38,
       "randomBaseline": 0,
       "releaseDate": "2026-01-21",
       "scoreCeiling": 100,
@@ -75,7 +75,7 @@
     {
       "id": "arc_agi",
       "inEci": true,
-      "models": 107,
+      "models": 110,
       "randomBaseline": 0,
       "releaseDate": "2019-11-05",
       "scoreCeiling": 100,
@@ -87,7 +87,7 @@
     {
       "id": "arc_agi_2",
       "inEci": true,
-      "models": 108,
+      "models": 111,
       "randomBaseline": 0,
       "releaseDate": "2025-03-24",
       "scoreCeiling": 100,
@@ -315,7 +315,7 @@
     {
       "id": "critpt",
       "inEci": false,
-      "models": 167,
+      "models": 170,
       "randomBaseline": 0,
       "releaseDate": "2025-09-30",
       "scoreCeiling": 100,
@@ -327,7 +327,7 @@
     {
       "id": "cursorbench",
       "inEci": false,
-      "models": 10,
+      "models": 11,
       "randomBaseline": 0,
       "releaseDate": "2026-03-11",
       "scoreCeiling": 100,
@@ -375,7 +375,7 @@
     {
       "id": "dtbench",
       "inEci": true,
-      "models": 205,
+      "models": 208,
       "randomBaseline": 40,
       "releaseDate": "2026-08-12",
       "scoreCeiling": 100,
@@ -447,7 +447,7 @@
     {
       "id": "frontier_code",
       "inEci": true,
-      "models": 40,
+      "models": 42,
       "randomBaseline": 0,
       "releaseDate": "2026-06-08",
       "scoreCeiling": 100,
@@ -459,7 +459,7 @@
     {
       "id": "frontier_swe",
       "inEci": false,
-      "models": 16,
+      "models": 18,
       "randomBaseline": 0,
       "releaseDate": "2026-09-02",
       "scoreCeiling": 100,
@@ -711,7 +711,7 @@
     {
       "id": "lmca",
       "inEci": true,
-      "models": 190,
+      "models": 193,
       "randomBaseline": 0,
       "releaseDate": "2026-08-12",
       "scoreCeiling": 85,
@@ -891,7 +891,7 @@
     {
       "id": "proofbench",
       "inEci": true,
-      "models": 82,
+      "models": 83,
       "randomBaseline": 0,
       "releaseDate": "2026-01-30",
       "scoreCeiling": 100,
@@ -1201,6 +1201,18 @@
       "unit": "pct"
     },
     {
+      "id": "weirdml_v3",
+      "inEci": false,
+      "models": 14,
+      "randomBaseline": 0,
+      "releaseDate": "2026-09-18",
+      "scoreCeiling": 100,
+      "scoreColumn": "Score",
+      "sourceFile": "weirdml_v3_external.csv",
+      "supersededBy": null,
+      "unit": "pct"
+    },
+    {
       "id": "wino_grande",
       "inEci": true,
       "models": 17,
@@ -1213,7 +1225,7 @@
       "unit": "pct"
     }
   ],
-  "generatedAt": "2026-09-28T20:13:19.370Z",
+  "generatedAt": "2026-09-29T07:28:29.069Z",
   "models": [
     {
       "benchmarks": {
@@ -5189,7 +5201,7 @@
       "id": "alibaba/qwen3-30b-a3b-instruct-2507",
       "knowledgeCutoff": null,
       "license": null,
-      "maxOutput": 235929,
+      "maxOutput": 32000,
       "modalities": {
         "input": [
           "text"
@@ -5207,8 +5219,8 @@
       },
       "pricing": {
         "cachedInputPerMTok": null,
-        "inputPerMTok": 0.1,
-        "outputPerMTok": 0.3
+        "inputPerMTok": 0.04815,
+        "outputPerMTok": 0.19305
       },
       "provenance": {
         "benchmarks.aime": "epoch.ai",
@@ -15902,6 +15914,14 @@
           "source": "epoch.ai",
           "sourceUrl": null,
           "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "weirdml_v3",
+          "score": 15.53,
+          "source": "epoch.ai",
+          "sourceUrl": "https://htihle.github.io/weirdml.html",
+          "unit": "pct"
         }
       ],
       "slug": "anthropic-claude-fable-5",
@@ -16296,6 +16316,14 @@
           "score": 92.9,
           "source": "epoch.ai",
           "sourceUrl": null,
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "weirdml_v3",
+          "score": 25.97,
+          "source": "epoch.ai",
+          "sourceUrl": "https://htihle.github.io/weirdml.html",
           "unit": "pct"
         }
       ],
@@ -18868,6 +18896,14 @@
           "source": "epoch.ai",
           "sourceUrl": "https://htihle.github.io/weirdml.html",
           "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "weirdml_v3",
+          "score": 6.52,
+          "source": "epoch.ai",
+          "sourceUrl": "https://htihle.github.io/weirdml.html",
+          "unit": "pct"
         }
       ],
       "slug": "anthropic-claude-opus-4-5",
@@ -19359,6 +19395,14 @@
           "attribution": "third-party",
           "league": "weirdml",
           "score": 63.74,
+          "source": "epoch.ai",
+          "sourceUrl": "https://htihle.github.io/weirdml.html",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "weirdml_v3",
+          "score": 6.52,
           "source": "epoch.ai",
           "sourceUrl": "https://htihle.github.io/weirdml.html",
           "unit": "pct"
@@ -21402,6 +21446,14 @@
           "source": "epoch.ai",
           "sourceUrl": null,
           "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "weirdml_v3",
+          "score": 19.01,
+          "source": "epoch.ai",
+          "sourceUrl": "https://htihle.github.io/weirdml.html",
+          "unit": "pct"
         }
       ],
       "slug": "anthropic-claude-opus-5",
@@ -21411,7 +21463,7 @@
     {
       "benchmarks": {
         "aime": null,
-        "arc_agi_2": null,
+        "arc_agi_2": 91.67,
         "eci": null,
         "fiction_live": null,
         "gpqa_diamond": null,
@@ -21449,6 +21501,14 @@
           "score": 71.72,
           "source": "livebench",
           "sourceUrl": "https://livebench.ai/#/?release=2026-06-25",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "cursorbench",
+          "score": 57.8,
+          "source": "epoch.ai",
+          "sourceUrl": "https://cursor.com/cursorbench",
           "unit": "pct"
         },
         {
@@ -21491,6 +21551,7 @@
         "outputPerMTok": 20
       },
       "provenance": {
+        "benchmarks.arc_agi_2": "epoch.ai",
         "capabilities.promptCaching": "derived",
         "capabilities.reasoning": "models.dev",
         "capabilities.toolCall": "models.dev",
@@ -21516,6 +21577,54 @@
       "scores": [
         {
           "attribution": "third-party",
+          "league": "apex_agents",
+          "score": 73.5,
+          "source": "epoch.ai",
+          "sourceUrl": null,
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "arc_agi",
+          "score": 97.5,
+          "source": "epoch.ai",
+          "sourceUrl": null,
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "arc_agi_2",
+          "score": 91.67,
+          "source": "epoch.ai",
+          "sourceUrl": "https://epoch.ai/benchmarks",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "critpt",
+          "score": 31.71,
+          "source": "epoch.ai",
+          "sourceUrl": null,
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "cursorbench",
+          "score": 57.8,
+          "source": "epoch.ai",
+          "sourceUrl": "https://cursor.com/cursorbench",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "dtbench",
+          "score": 98.93,
+          "source": "epoch.ai",
+          "sourceUrl": "https://conceptualreasoning.ai/dtbench",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
           "league": "ebr_bench",
           "score": 71.43,
           "source": "epoch.ai",
@@ -21528,6 +21637,14 @@
           "score": 54.4,
           "source": "models.dev",
           "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "frontier_swe",
+          "score": 62.33,
+          "source": "epoch.ai",
+          "sourceUrl": "https://www.frontierswe.com/",
           "unit": "pct"
         },
         {
@@ -21555,11 +21672,35 @@
           "unit": "pct"
         },
         {
+          "attribution": "third-party",
+          "league": "lmca",
+          "score": 68.23,
+          "source": "epoch.ai",
+          "sourceUrl": "https://conceptualreasoning.ai/lmca",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "proofbench",
+          "score": 100,
+          "source": "epoch.ai",
+          "sourceUrl": "https://www.vals.ai/benchmarks/proof_bench",
+          "unit": "pct"
+        },
+        {
           "attribution": "vendor-self-reported",
           "league": "terminal_bench",
           "score": 66.4,
           "source": "models.dev",
           "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "weirdml_v3",
+          "score": 31.2,
+          "source": "epoch.ai",
+          "sourceUrl": "https://htihle.github.io/weirdml.html",
           "unit": "pct"
         }
       ],
@@ -30767,7 +30908,7 @@
       "id": "deepseek/deepseek-v3.1-terminus",
       "knowledgeCutoff": null,
       "license": null,
-      "maxOutput": 147456,
+      "maxOutput": 65536,
       "modalities": {
         "input": [
           "text"
@@ -30798,7 +30939,7 @@
         "modalities": "openrouter",
         "name": "derived",
         "params.sizeTier": "derived",
-        "pricing.cachedInputPerMTok": "vercel-gateway",
+        "pricing.cachedInputPerMTok": "openrouter",
         "pricing.inputPerMTok": "litellm",
         "pricing.outputPerMTok": "litellm",
         "releaseDate": "vercel-gateway",
@@ -34386,6 +34527,14 @@
           "source": "epoch.ai",
           "sourceUrl": "https://epoch.ai/benchmarks",
           "unit": "elo"
+        },
+        {
+          "attribution": "third-party",
+          "league": "weirdml_v3",
+          "score": 5.95,
+          "source": "epoch.ai",
+          "sourceUrl": "https://htihle.github.io/weirdml.html",
+          "unit": "pct"
         }
       ],
       "slug": "deepseek-deepseek-v4-1-flash",
@@ -42099,6 +42248,14 @@
           "source": "epoch.ai",
           "sourceUrl": "https://epoch.ai/benchmarks",
           "unit": "elo"
+        },
+        {
+          "attribution": "third-party",
+          "league": "weirdml_v3",
+          "score": 7.38,
+          "source": "epoch.ai",
+          "sourceUrl": "https://htihle.github.io/weirdml.html",
+          "unit": "pct"
         }
       ],
       "slug": "google-gemini-3-8-flash",
@@ -43309,7 +43466,7 @@
         "totalB": 25.81
       },
       "pricing": {
-        "cachedInputPerMTok": 0.05,
+        "cachedInputPerMTok": 0.0425,
         "inputPerMTok": 0.1,
         "outputPerMTok": 0.34
       },
@@ -51862,7 +52019,7 @@
         "name": "models.dev",
         "openWeights": "models.dev",
         "params.totalB": "huggingface",
-        "pricing.cachedInputPerMTok": "litellm",
+        "pricing.cachedInputPerMTok": "models.dev",
         "pricing.inputPerMTok": "models.dev",
         "pricing.outputPerMTok": "models.dev",
         "releaseDate": "models.dev",
@@ -54418,7 +54575,7 @@
         "modalities": "models.dev",
         "name": "models.dev",
         "openWeights": "models.dev",
-        "pricing.cachedInputPerMTok": "litellm",
+        "pricing.cachedInputPerMTok": "models.dev",
         "pricing.inputPerMTok": "models.dev",
         "pricing.outputPerMTok": "models.dev",
         "releaseDate": "openrouter",
@@ -54732,7 +54889,7 @@
         "modalities": "models.dev",
         "name": "models.dev",
         "openWeights": "models.dev",
-        "pricing.cachedInputPerMTok": "litellm",
+        "pricing.cachedInputPerMTok": "models.dev",
         "pricing.inputPerMTok": "models.dev",
         "pricing.outputPerMTok": "models.dev",
         "releaseDate": "models.dev",
@@ -55436,7 +55593,7 @@
         "name": "models.dev",
         "openWeights": "models.dev",
         "params.totalB": "huggingface",
-        "pricing.cachedInputPerMTok": "litellm",
+        "pricing.cachedInputPerMTok": "models.dev",
         "pricing.inputPerMTok": "models.dev",
         "pricing.outputPerMTok": "models.dev",
         "releaseDate": "epoch.ai",
@@ -56037,7 +56194,7 @@
         "name": "models.dev",
         "openWeights": "models.dev",
         "params.totalB": "huggingface",
-        "pricing.cachedInputPerMTok": "litellm",
+        "pricing.cachedInputPerMTok": "models.dev",
         "pricing.inputPerMTok": "models.dev",
         "pricing.outputPerMTok": "models.dev",
         "releaseDate": "models.dev",
@@ -56856,7 +57013,7 @@
         "name": "models.dev",
         "openWeights": "models.dev",
         "params.totalB": "huggingface",
-        "pricing.cachedInputPerMTok": "litellm",
+        "pricing.cachedInputPerMTok": "models.dev",
         "pricing.inputPerMTok": "models.dev",
         "pricing.outputPerMTok": "models.dev",
         "releaseDate": "models.dev",
@@ -57233,7 +57390,7 @@
         "name": "models.dev",
         "openWeights": "models.dev",
         "params.totalB": "huggingface",
-        "pricing.cachedInputPerMTok": "litellm",
+        "pricing.cachedInputPerMTok": "models.dev",
         "pricing.inputPerMTok": "models.dev",
         "pricing.outputPerMTok": "models.dev",
         "releaseDate": "models.dev",
@@ -60345,6 +60502,14 @@
           "source": "epoch.ai",
           "sourceUrl": null,
           "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "weirdml_v3",
+          "score": 7.27,
+          "source": "epoch.ai",
+          "sourceUrl": "https://htihle.github.io/weirdml.html",
+          "unit": "pct"
         }
       ],
       "slug": "moonshotai-kimi-k3",
@@ -62375,7 +62540,7 @@
         "totalB": null
       },
       "pricing": {
-        "cachedInputPerMTok": 0.01,
+        "cachedInputPerMTok": 0.0195,
         "inputPerMTok": 0.05,
         "outputPerMTok": 0.2
       },
@@ -75458,6 +75623,14 @@
           "source": "epoch.ai",
           "sourceUrl": null,
           "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "weirdml_v3",
+          "score": 5.16,
+          "source": "epoch.ai",
+          "sourceUrl": "https://htihle.github.io/weirdml.html",
+          "unit": "pct"
         }
       ],
       "slug": "openai-gpt-5-6-luna",
@@ -75974,6 +76147,14 @@
           "score": 89.43,
           "source": "epoch.ai",
           "sourceUrl": null,
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "weirdml_v3",
+          "score": 14.99,
+          "source": "epoch.ai",
+          "sourceUrl": "https://htihle.github.io/weirdml.html",
           "unit": "pct"
         }
       ],
@@ -76891,6 +77072,14 @@
           "source": "epoch.ai",
           "sourceUrl": null,
           "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "weirdml_v3",
+          "score": 42.22,
+          "source": "epoch.ai",
+          "sourceUrl": "https://htihle.github.io/weirdml.html",
+          "unit": "pct"
         }
       ],
       "slug": "openai-gpt-6-astra",
@@ -77046,7 +77235,7 @@
     {
       "benchmarks": {
         "aime": null,
-        "arc_agi_2": null,
+        "arc_agi_2": 59.31,
         "eci": null,
         "fiction_live": null,
         "gpqa_diamond": null,
@@ -77068,6 +77257,14 @@
           "score": 66.6,
           "source": "models.dev",
           "sourceUrl": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "frontier_code",
+          "score": 42.42,
+          "source": "epoch.ai",
+          "sourceUrl": "https://cognition.com/frontiercode",
           "unit": "pct"
         }
       ],
@@ -77102,6 +77299,7 @@
         "outputPerMTok": 0.5
       },
       "provenance": {
+        "benchmarks.arc_agi_2": "epoch.ai",
         "capabilities.promptCaching": "derived",
         "capabilities.reasoning": "models.dev",
         "capabilities.structuredOutput": "models.dev",
@@ -77127,6 +77325,38 @@
       "retiredAt": null,
       "scores": [
         {
+          "attribution": "third-party",
+          "league": "apex_agents",
+          "score": 44.3,
+          "source": "epoch.ai",
+          "sourceUrl": null,
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "arc_agi",
+          "score": 86.67,
+          "source": "epoch.ai",
+          "sourceUrl": null,
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "arc_agi_2",
+          "score": 59.31,
+          "source": "epoch.ai",
+          "sourceUrl": "https://epoch.ai/benchmarks",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "critpt",
+          "score": 19.43,
+          "source": "epoch.ai",
+          "sourceUrl": null,
+          "unit": "pct"
+        },
+        {
           "attribution": "vendor-self-reported",
           "league": "deepswe",
           "score": 66.6,
@@ -77136,10 +77366,42 @@
         },
         {
           "attribution": "third-party",
+          "league": "dtbench",
+          "score": 90.13,
+          "source": "epoch.ai",
+          "sourceUrl": "https://conceptualreasoning.ai/dtbench",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "frontier_code",
+          "score": 42.42,
+          "source": "epoch.ai",
+          "sourceUrl": "https://cognition.com/frontiercode",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
           "league": "furniture_assembly",
           "score": 44.17,
           "source": "epoch.ai",
           "sourceUrl": null,
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "lmca",
+          "score": 44.49,
+          "source": "epoch.ai",
+          "sourceUrl": "https://conceptualreasoning.ai/lmca",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "weirdml_v3",
+          "score": 7.66,
+          "source": "epoch.ai",
+          "sourceUrl": "https://htihle.github.io/weirdml.html",
           "unit": "pct"
         }
       ],
@@ -77221,7 +77483,7 @@
     {
       "benchmarks": {
         "aime": null,
-        "arc_agi_2": null,
+        "arc_agi_2": 89.58,
         "eci": null,
         "fiction_live": null,
         "gpqa_diamond": null,
@@ -77244,6 +77506,22 @@
           "source": "models.dev",
           "sourceUrl": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
           "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "frontier_code",
+          "score": 49.27,
+          "source": "epoch.ai",
+          "sourceUrl": "https://cognition.com/frontiercode",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "ale_bench",
+          "score": 2462,
+          "source": "epoch.ai",
+          "sourceUrl": "https://epoch.ai/benchmarks",
+          "unit": "index"
         }
       ],
       "contextWindow": 1050000,
@@ -77277,6 +77555,7 @@
         "outputPerMTok": 10
       },
       "provenance": {
+        "benchmarks.arc_agi_2": "epoch.ai",
         "capabilities.promptCaching": "derived",
         "capabilities.reasoning": "models.dev",
         "capabilities.structuredOutput": "models.dev",
@@ -77302,11 +77581,59 @@
       "retiredAt": null,
       "scores": [
         {
+          "attribution": "third-party",
+          "league": "ale_bench",
+          "score": 2462,
+          "source": "epoch.ai",
+          "sourceUrl": "https://epoch.ai/benchmarks",
+          "unit": "index"
+        },
+        {
+          "attribution": "third-party",
+          "league": "apex_agents",
+          "score": 54.3,
+          "source": "epoch.ai",
+          "sourceUrl": null,
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "arc_agi",
+          "score": 95.5,
+          "source": "epoch.ai",
+          "sourceUrl": null,
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "arc_agi_2",
+          "score": 89.58,
+          "source": "epoch.ai",
+          "sourceUrl": "https://epoch.ai/benchmarks",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "critpt",
+          "score": 30.86,
+          "source": "epoch.ai",
+          "sourceUrl": null,
+          "unit": "pct"
+        },
+        {
           "attribution": "vendor-self-reported",
           "league": "deepswe",
           "score": 68.8,
           "source": "models.dev",
           "sourceUrl": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "dtbench",
+          "score": 97.33,
+          "source": "epoch.ai",
+          "sourceUrl": "https://conceptualreasoning.ai/dtbench",
           "unit": "pct"
         },
         {
@@ -77319,10 +77646,34 @@
         },
         {
           "attribution": "third-party",
+          "league": "frontier_code",
+          "score": 49.27,
+          "source": "epoch.ai",
+          "sourceUrl": "https://cognition.com/frontiercode",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
           "league": "furniture_assembly",
           "score": 58.33,
           "source": "epoch.ai",
           "sourceUrl": null,
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "lmca",
+          "score": 59.08,
+          "source": "epoch.ai",
+          "sourceUrl": "https://conceptualreasoning.ai/lmca",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "weirdml_v3",
+          "score": 19.73,
+          "source": "epoch.ai",
+          "sourceUrl": "https://htihle.github.io/weirdml.html",
           "unit": "pct"
         }
       ],
@@ -78412,7 +78763,7 @@
         "totalB": 19.11
       },
       "pricing": {
-        "cachedInputPerMTok": 0.03,
+        "cachedInputPerMTok": 0.02,
         "inputPerMTok": 0.05,
         "outputPerMTok": 0.2
       },
@@ -81705,7 +82056,7 @@
         "webdev_arena_elo": null
       },
       "capabilities": {
-        "promptCaching": false,
+        "promptCaching": true,
         "reasoning": null,
         "structuredOutput": null,
         "toolCall": null
@@ -81734,7 +82085,7 @@
         "totalB": 27
       },
       "pricing": {
-        "cachedInputPerMTok": null,
+        "cachedInputPerMTok": 0.0375,
         "inputPerMTok": 0.075,
         "outputPerMTok": 0.5
       },
@@ -81745,6 +82096,7 @@
         "modalities": "openrouter",
         "name": "derived",
         "params.totalB": "derived",
+        "pricing.cachedInputPerMTok": "openrouter",
         "pricing.inputPerMTok": "litellm",
         "pricing.outputPerMTok": "litellm",
         "releaseDate": "openrouter",
@@ -89551,6 +89903,14 @@
         },
         {
           "attribution": "third-party",
+          "league": "frontier_swe",
+          "score": 29.5,
+          "source": "epoch.ai",
+          "sourceUrl": "https://www.frontierswe.com/",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
           "league": "furniture_assembly",
           "score": 20.83,
           "source": "epoch.ai",
@@ -94590,43 +94950,43 @@
   ],
   "sources": {
     "derived": {
-      "fetchedAt": "2026-09-28T20:13:19.370Z",
+      "fetchedAt": "2026-09-29T07:28:29.069Z",
       "note": "管线内推导的字段（规模档位、缓存能力、退役判定）",
       "ok": true
     },
     "epoch.ai": {
-      "fetchedAt": "2026-09-28T20:13:19.370Z",
-      "note": "ZIP 88 个条目；取到 7/7 个指标；编程赛制 9 个；全榜单 77 个；训练算力 326 行；去重后 409 个模型实体；合规拦截 1 个文件",
+      "fetchedAt": "2026-09-29T07:28:29.069Z",
+      "note": "ZIP 89 个条目；取到 7/7 个指标；编程赛制 9 个；全榜单 78 个；训练算力 326 行；去重后 412 个模型实体；合规拦截 1 个文件",
       "ok": true
     },
     "huggingface": {
-      "fetchedAt": "2026-09-28T20:13:19.370Z",
+      "fetchedAt": "2026-09-29T07:28:29.069Z",
       "note": "请求 164 个开源模型，成功 160，失败 4",
       "ok": true
     },
     "litellm": {
-      "fetchedAt": "2026-09-28T20:13:19.370Z",
-      "note": "4409 条（对话类 3517 条）；用作新模型的第三方佐证，以及 models.dev 缺项时的定价/上下文兜底",
+      "fetchedAt": "2026-09-29T07:28:29.069Z",
+      "note": "4421 条（对话类 3529 条）；用作新模型的第三方佐证，以及 models.dev 缺项时的定价/上下文兜底",
       "ok": true
     },
     "livebench": {
-      "fetchedAt": "2026-09-28T20:13:19.370Z",
+      "fetchedAt": "2026-09-29T07:28:29.069Z",
       "note": "Apache-2.0 / DATASHEET 明文「no copyrights on the data」。采用 6 个同期 release（2026-06-25, 2026-01-08, 2025-12-23, 2025-11-25, 2025-05-30, 2025-04-25）；跳过题目集换代前的 5 个（2024-06-24, 2024-07-26, 2024-08-31, 2024-11-25, 2025-04-02）——实测跨这个断点同一模型的 Coding 分中位差 27.6 分，不可同池。",
       "ok": true
     },
     "lmarena": {
-      "fetchedAt": "2026-09-28T20:13:19.370Z",
+      "fetchedAt": "2026-09-29T07:28:29.069Z",
       "note": "7/7 个分榜，共 320 条 Arena 分",
       "ok": true
     },
     "models.dev": {
-      "fetchedAt": "2026-09-28T20:13:19.370Z",
-      "note": "models.json 432 条；api.json 225 provider / 8277 条；benchmarks[] 1082 条，已拦截 AA 血缘 174 条，非编程口径跳过 549 条",
+      "fetchedAt": "2026-09-29T07:28:29.069Z",
+      "note": "models.json 432 条；api.json 225 provider / 8279 条；benchmarks[] 1082 条，已拦截 AA 血缘 174 条，非编程口径跳过 549 条",
       "ok": true
     },
     "openrouter": {
-      "fetchedAt": "2026-09-28T20:13:19.370Z",
-      "note": "460 条；已剔除 artificial_analysis 189 处（AA ToS 合规）；用于新模型发现、发布日期投票，以及 models.dev 缺项时的定价/上下文/模态兜底",
+      "fetchedAt": "2026-09-29T07:28:29.069Z",
+      "note": "460 条；已剔除 artificial_analysis 191 处（AA ToS 合规）；用于新模型发现、发布日期投票，以及 models.dev 缺项时的定价/上下文/模态兜底",
       "ok": true
     },
     "override": {
@@ -94635,7 +94995,7 @@
       "ok": true
     },
     "vercel-gateway": {
-      "fetchedAt": "2026-09-28T20:13:19.370Z",
+      "fetchedAt": "2026-09-29T07:28:29.069Z",
       "note": "390 条（language 264 条）；用于新模型发现、发布日期投票，以及 models.dev 缺项时的定价/上下文/模态兜底",
       "ok": true
     }
