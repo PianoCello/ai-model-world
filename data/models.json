@@ -39,7 +39,7 @@
     {
       "id": "ale_bench",
       "inEci": false,
-      "models": 144,
+      "models": 145,
       "randomBaseline": null,
       "releaseDate": "2025-06-10",
       "scoreCeiling": null,
@@ -63,7 +63,7 @@
     {
       "id": "apex_agents",
       "inEci": true,
-      "models": 36,
+      "models": 37,
       "randomBaseline": 0,
       "releaseDate": "2026-01-21",
       "scoreCeiling": 100,
@@ -315,7 +315,7 @@
     {
       "id": "critpt",
       "inEci": false,
-      "models": 168,
+      "models": 169,
       "randomBaseline": 0,
       "releaseDate": "2025-09-30",
       "scoreCeiling": 100,
@@ -327,7 +327,7 @@
     {
       "id": "cursorbench",
       "inEci": false,
-      "models": 11,
+      "models": 12,
       "randomBaseline": 0,
       "releaseDate": "2026-03-11",
       "scoreCeiling": 100,
@@ -459,7 +459,7 @@
     {
       "id": "frontier_swe",
       "inEci": true,
-      "models": 18,
+      "models": 19,
       "randomBaseline": 0,
       "releaseDate": "2026-09-02",
       "scoreCeiling": 100,
@@ -507,7 +507,7 @@
     {
       "id": "frontiermath_tier_4_v2",
       "inEci": true,
-      "models": 73,
+      "models": 74,
       "randomBaseline": 0,
       "releaseDate": "2026-06-12",
       "scoreCeiling": 100,
@@ -519,7 +519,7 @@
     {
       "id": "frontiermath_tiers_1_3_v2",
       "inEci": true,
-      "models": 101,
+      "models": 102,
       "randomBaseline": 0,
       "releaseDate": "2026-06-12",
       "scoreCeiling": 100,
@@ -651,7 +651,7 @@
     {
       "id": "livebench_agentic_coding",
       "inEci": false,
-      "models": 104,
+      "models": 105,
       "randomBaseline": null,
       "releaseDate": null,
       "scoreCeiling": null,
@@ -663,7 +663,7 @@
     {
       "id": "livebench_coding",
       "inEci": false,
-      "models": 124,
+      "models": 125,
       "randomBaseline": null,
       "releaseDate": null,
       "scoreCeiling": null,
@@ -795,7 +795,7 @@
     {
       "id": "mystery_game_puzzles",
       "inEci": true,
-      "models": 92,
+      "models": 94,
       "randomBaseline": 9.22,
       "releaseDate": "2026-07-30",
       "scoreCeiling": 100,
@@ -891,7 +891,7 @@
     {
       "id": "proofbench",
       "inEci": true,
-      "models": 83,
+      "models": 84,
       "randomBaseline": 0,
       "releaseDate": "2026-01-30",
       "scoreCeiling": 100,
@@ -1179,7 +1179,7 @@
     {
       "id": "webdev_arena_elo",
       "inEci": false,
-      "models": 126,
+      "models": 128,
       "randomBaseline": null,
       "releaseDate": "2024-12-10",
       "scoreCeiling": null,
@@ -1225,7 +1225,7 @@
       "unit": "pct"
     }
   ],
-  "generatedAt": "2026-09-29T18:51:18.557Z",
+  "generatedAt": "2026-09-30T07:21:55.755Z",
   "models": [
     {
       "benchmarks": {
@@ -21470,7 +21470,7 @@
         "swe_bench_pro": null,
         "swe_bench_vendor": null,
         "swe_bench_verified": null,
-        "webdev_arena_elo": null
+        "webdev_arena_elo": 1820.31
       },
       "capabilities": {
         "promptCaching": true,
@@ -21526,6 +21526,14 @@
           "source": "epoch.ai",
           "sourceUrl": "https://epoch.ai/benchmarks",
           "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "webdev_arena_elo",
+          "score": 1820.31,
+          "source": "epoch.ai",
+          "sourceUrl": "https://epoch.ai/benchmarks",
+          "unit": "elo"
         }
       ],
       "contextWindow": 1000000,
@@ -21562,6 +21570,7 @@
         "benchmarks.aime": "epoch.ai",
         "benchmarks.arc_agi_2": "epoch.ai",
         "benchmarks.gpqa_diamond": "epoch.ai",
+        "benchmarks.webdev_arena_elo": "epoch.ai",
         "capabilities.promptCaching": "derived",
         "capabilities.reasoning": "models.dev",
         "capabilities.toolCall": "models.dev",
@@ -21731,6 +21740,14 @@
         },
         {
           "attribution": "third-party",
+          "league": "mystery_game_puzzles",
+          "score": 71,
+          "source": "epoch.ai",
+          "sourceUrl": null,
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
           "league": "proofbench",
           "score": 100,
           "source": "epoch.ai",
@@ -21752,6 +21769,14 @@
           "source": "models.dev",
           "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
           "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "webdev_arena_elo",
+          "score": 1820.31,
+          "source": "epoch.ai",
+          "sourceUrl": "https://epoch.ai/benchmarks",
+          "unit": "elo"
         },
         {
           "attribution": "third-party",
@@ -24354,7 +24379,7 @@
         "swe_bench_pro": null,
         "swe_bench_vendor": null,
         "swe_bench_verified": null,
-        "webdev_arena_elo": null
+        "webdev_arena_elo": 1698.82
       },
       "capabilities": {
         "promptCaching": true,
@@ -24388,12 +24413,36 @@
           "unit": "pct"
         },
         {
-          "attribution": "vendor-self-reported",
-          "league": "frontier_code",
-          "score": 46.2,
-          "source": "models.dev",
-          "sourceUrl": "https://www.anthropic.com/claude-sonnet-5-5",
+          "attribution": "third-party",
+          "league": "cursorbench",
+          "score": 55.5,
+          "source": "epoch.ai",
+          "sourceUrl": "https://cursor.com/cursorbench",
           "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "frontier_code",
+          "score": 52.09,
+          "source": "epoch.ai",
+          "sourceUrl": "https://cognition.com/frontiercode",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "ale_bench",
+          "score": 1819.12,
+          "source": "epoch.ai",
+          "sourceUrl": "https://epoch.ai/benchmarks",
+          "unit": "index"
+        },
+        {
+          "attribution": "third-party",
+          "league": "webdev_arena_elo",
+          "score": 1698.82,
+          "source": "epoch.ai",
+          "sourceUrl": "https://epoch.ai/benchmarks",
+          "unit": "elo"
         }
       ],
       "contextWindow": 1000000,
@@ -24429,6 +24478,7 @@
       "provenance": {
         "benchmarks.aime": "epoch.ai",
         "benchmarks.gpqa_diamond": "epoch.ai",
+        "benchmarks.webdev_arena_elo": "epoch.ai",
         "capabilities.promptCaching": "derived",
         "capabilities.reasoning": "models.dev",
         "capabilities.toolCall": "models.dev",
@@ -24461,11 +24511,67 @@
           "unit": "pct"
         },
         {
-          "attribution": "vendor-self-reported",
+          "attribution": "third-party",
+          "league": "ale_bench",
+          "score": 1819.12,
+          "source": "epoch.ai",
+          "sourceUrl": "https://epoch.ai/benchmarks",
+          "unit": "index"
+        },
+        {
+          "attribution": "third-party",
+          "league": "apex_agents",
+          "score": 75.5,
+          "source": "epoch.ai",
+          "sourceUrl": null,
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "critpt",
+          "score": 31.43,
+          "source": "epoch.ai",
+          "sourceUrl": null,
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "cursorbench",
+          "score": 55.5,
+          "source": "epoch.ai",
+          "sourceUrl": "https://cursor.com/cursorbench",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
           "league": "frontier_code",
-          "score": 46.2,
-          "source": "models.dev",
-          "sourceUrl": "https://www.anthropic.com/claude-sonnet-5-5",
+          "score": 52.09,
+          "source": "epoch.ai",
+          "sourceUrl": "https://cognition.com/frontiercode",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "frontier_swe",
+          "score": 61.89,
+          "source": "epoch.ai",
+          "sourceUrl": "https://www.frontierswe.com/",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "frontiermath_tier_4_v2",
+          "score": 80.49,
+          "source": "epoch.ai",
+          "sourceUrl": null,
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "frontiermath_tiers_1_3_v2",
+          "score": 88.77,
+          "source": "epoch.ai",
+          "sourceUrl": null,
           "unit": "pct"
         },
         {
@@ -24502,6 +24608,22 @@
         },
         {
           "attribution": "third-party",
+          "league": "mystery_game_puzzles",
+          "score": 65,
+          "source": "epoch.ai",
+          "sourceUrl": null,
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "proofbench",
+          "score": 100,
+          "source": "epoch.ai",
+          "sourceUrl": "https://www.vals.ai/benchmarks/proof_bench",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
           "league": "simpleqa_verified",
           "score": 46.5,
           "source": "epoch.ai",
@@ -24515,6 +24637,14 @@
           "source": "models.dev",
           "sourceUrl": "https://www.anthropic.com/claude-sonnet-5-5",
           "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "webdev_arena_elo",
+          "score": 1698.82,
+          "source": "epoch.ai",
+          "sourceUrl": "https://epoch.ai/benchmarks",
+          "unit": "elo"
         }
       ],
       "slug": "anthropic-claude-sonnet-5-5",
@@ -34151,7 +34281,7 @@
         "totalB": 1623.5
       },
       "pricing": {
-        "cachedInputPerMTok": 0.05,
+        "cachedInputPerMTok": 0.047907,
         "inputPerMTok": 1.32,
         "outputPerMTok": 3.96
       },
@@ -43558,7 +43688,7 @@
         "totalB": 25.81
       },
       "pricing": {
-        "cachedInputPerMTok": 0.049,
+        "cachedInputPerMTok": 0.0425,
         "inputPerMTok": 0.1,
         "outputPerMTok": 0.34
       },
@@ -45610,9 +45740,9 @@
       },
       "capabilities": {
         "promptCaching": null,
-        "reasoning": null,
+        "reasoning": true,
         "structuredOutput": null,
-        "toolCall": null
+        "toolCall": true
       },
       "coding": [],
       "contextWindow": 262144,
@@ -45630,7 +45760,7 @@
         ]
       },
       "name": "Ling 3.1 Flash",
-      "openWeights": null,
+      "openWeights": false,
       "params": {
         "activeB": null,
         "confidence": "estimated",
@@ -45644,13 +45774,16 @@
         "outputPerMTok": null
       },
       "provenance": {
-        "contextWindow": "vercel-gateway",
-        "maxOutput": "vercel-gateway",
-        "modalities": "vercel-gateway",
-        "name": "derived",
+        "capabilities.reasoning": "models.dev",
+        "capabilities.toolCall": "models.dev",
+        "contextWindow": "models.dev",
+        "maxOutput": "models.dev",
+        "modalities": "models.dev",
+        "name": "models.dev",
+        "openWeights": "models.dev",
         "params.sizeTier": "derived",
-        "releaseDate": "vercel-gateway",
-        "releaseDatePrecision": "vercel-gateway",
+        "releaseDate": "models.dev",
+        "releaseDatePrecision": "models.dev",
         "vendorId": "derived"
       },
       "releaseDate": "2026-09-29",
@@ -76359,14 +76492,14 @@
       "params": {
         "activeB": null,
         "confidence": "estimated",
-        "sizeTier": 4,
+        "sizeTier": 5,
         "sizeTierBasis": "price+naming",
         "totalB": null
       },
       "pricing": {
-        "cachedInputPerMTok": 0.2,
-        "inputPerMTok": 2,
-        "outputPerMTok": 10
+        "cachedInputPerMTok": 0.4,
+        "inputPerMTok": 4,
+        "outputPerMTok": 20
       },
       "provenance": {
         "capabilities.promptCaching": "derived",
@@ -77765,7 +77898,24 @@
         "structuredOutput": true,
         "toolCall": true
       },
-      "coding": [],
+      "coding": [
+        {
+          "attribution": "third-party",
+          "league": "livebench_coding",
+          "score": 80.74,
+          "source": "livebench",
+          "sourceUrl": "https://livebench.ai/#/?release=2026-06-25",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "livebench_agentic_coding",
+          "score": 56.77,
+          "source": "livebench",
+          "sourceUrl": "https://livebench.ai/#/?release=2026-06-25",
+          "unit": "pct"
+        }
+      ],
       "contextWindow": 1050000,
       "firstSeenAt": "2026-09-29T18:51:18.557Z",
       "id": "openai/gpt-6.1-sol",
@@ -77801,6 +77951,7 @@
         "capabilities.reasoning": "models.dev",
         "capabilities.structuredOutput": "models.dev",
         "capabilities.toolCall": "models.dev",
+        "coding": "derived",
         "contextWindow": "models.dev",
         "knowledgeCutoff": "models.dev",
         "maxOutput": "models.dev",
@@ -77813,12 +77964,30 @@
         "pricing.outputPerMTok": "models.dev",
         "releaseDate": "models.dev",
         "releaseDatePrecision": "models.dev",
+        "scores": "derived",
         "vendorId": "derived"
       },
       "releaseDate": "2026-09-29",
       "releaseDatePrecision": "day",
       "retiredAt": null,
-      "scores": [],
+      "scores": [
+        {
+          "attribution": "third-party",
+          "league": "livebench_agentic_coding",
+          "score": 56.77,
+          "source": "livebench",
+          "sourceUrl": "https://livebench.ai/#/?release=2026-06-25",
+          "unit": "pct"
+        },
+        {
+          "attribution": "third-party",
+          "league": "livebench_coding",
+          "score": 80.74,
+          "source": "livebench",
+          "sourceUrl": "https://livebench.ai/#/?release=2026-06-25",
+          "unit": "pct"
+        }
+      ],
       "slug": "openai-gpt-6-1-sol",
       "trainingComputeFlop": null,
       "vendorId": "openai"
@@ -82238,7 +82407,7 @@
         "modalities": "openrouter",
         "name": "derived",
         "params.totalB": "derived",
-        "pricing.cachedInputPerMTok": "openrouter",
+        "pricing.cachedInputPerMTok": "litellm",
         "pricing.inputPerMTok": "litellm",
         "pricing.outputPerMTok": "litellm",
         "releaseDate": "openrouter",
@@ -95092,43 +95261,43 @@
   ],
   "sources": {
     "derived": {
-      "fetchedAt": "2026-09-29T18:51:18.557Z",
+      "fetchedAt": "2026-09-30T07:21:55.755Z",
       "note": "管线内推导的字段（规模档位、缓存能力、退役判定）",
       "ok": true
     },
     "epoch.ai": {
-      "fetchedAt": "2026-09-29T18:51:18.557Z",
+      "fetchedAt": "2026-09-30T07:21:55.755Z",
       "note": "ZIP 89 个条目；取到 7/7 个指标；编程赛制 9 个；全榜单 78 个；训练算力 326 行；去重后 411 个模型实体；合规拦截 1 个文件",
       "ok": true
     },
     "huggingface": {
-      "fetchedAt": "2026-09-29T18:51:18.557Z",
+      "fetchedAt": "2026-09-30T07:21:55.755Z",
       "note": "请求 164 个开源模型，成功 160，失败 4",
       "ok": true
     },
     "litellm": {
-      "fetchedAt": "2026-09-29T18:51:18.557Z",
-      "note": "4430 条（对话类 3538 条）；用作新模型的第三方佐证，以及 models.dev 缺项时的定价/上下文兜底",
+      "fetchedAt": "2026-09-30T07:21:55.755Z",
+      "note": "4436 条（对话类 3544 条）；用作新模型的第三方佐证，以及 models.dev 缺项时的定价/上下文兜底",
       "ok": true
     },
     "livebench": {
-      "fetchedAt": "2026-09-29T18:51:18.557Z",
+      "fetchedAt": "2026-09-30T07:21:55.755Z",
       "note": "Apache-2.0 / DATASHEET 明文「no copyrights on the data」。采用 6 个同期 release（2026-06-25, 2026-01-08, 2025-12-23, 2025-11-25, 2025-05-30, 2025-04-25）；跳过题目集换代前的 5 个（2024-06-24, 2024-07-26, 2024-08-31, 2024-11-25, 2025-04-02）——实测跨这个断点同一模型的 Coding 分中位差 27.6 分，不可同池。",
       "ok": true
     },
     "lmarena": {
-      "fetchedAt": "2026-09-29T18:51:18.557Z",
+      "fetchedAt": "2026-09-30T07:21:55.755Z",
       "note": "7/7 个分榜，共 320 条 Arena 分",
       "ok": true
     },
     "models.dev": {
-      "fetchedAt": "2026-09-29T18:51:18.557Z",
-      "note": "models.json 433 条；api.json 225 provider / 8293 条；benchmarks[] 1082 条，已拦截 AA 血缘 174 条，非编程口径跳过 549 条",
+      "fetchedAt": "2026-09-30T07:21:55.755Z",
+      "note": "models.json 434 条；api.json 225 provider / 8324 条；benchmarks[] 1082 条，已拦截 AA 血缘 174 条，非编程口径跳过 549 条",
       "ok": true
     },
     "openrouter": {
-      "fetchedAt": "2026-09-29T18:51:18.557Z",
-      "note": "464 条；已剔除 artificial_analysis 191 处（AA ToS 合规）；用于新模型发现、发布日期投票，以及 models.dev 缺项时的定价/上下文/模态兜底",
+      "fetchedAt": "2026-09-30T07:21:55.755Z",
+      "note": "464 条；已剔除 artificial_analysis 193 处（AA ToS 合规）；用于新模型发现、发布日期投票，以及 models.dev 缺项时的定价/上下文/模态兜底",
       "ok": true
     },
     "override": {
@@ -95137,8 +95306,8 @@
       "ok": true
     },
     "vercel-gateway": {
-      "fetchedAt": "2026-09-29T18:51:18.557Z",
-      "note": "394 条（language 268 条）；用于新模型发现、发布日期投票，以及 models.dev 缺项时的定价/上下文/模态兜底",
+      "fetchedAt": "2026-09-30T07:21:55.755Z",
+      "note": "395 条（language 268 条）；用于新模型发现、发布日期投票，以及 models.dev 缺项时的定价/上下文/模态兜底",
       "ok": true
     }
   },
