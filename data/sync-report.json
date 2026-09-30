@@ -3,8 +3,8 @@
   "coding": {
     "_note": "ModelRecord.coding[] 的落地情况。一个赛制一条成绩，跨赛制永不混算。byLeague 是「该赛制覆盖了几个模型」，各赛制之间会重叠（一个模型可以有多条成绩）。flagship 是广场首屏当家门面的命中率——全站覆盖率会被长尾微调模型稀释，首屏才是用户真正看到的东西；without 如实列出仍然没有任何编程成绩的门面。modelsOnlyElo 是只有 WebDev Arena Elo、没有任何百分数成绩的模型：它们能排名，但读不出「解决了几成任务」，前端别把 Elo 塞进百分数的分位池。",
     "byAttribution": {
-      "third-party": 877,
-      "vendor-self-reported": 213
+      "third-party": 878,
+      "vendor-self-reported": 212
     },
     "byLeague": {
       "aider_polyglot": 61,
@@ -135,8 +135,8 @@
       "total": 624
     },
     "benchmarks.eci": {
-      "filled": 210,
-      "pct": 33.7,
+      "filled": 212,
+      "pct": 34,
       "total": 624
     },
     "benchmarks.fiction_live": {
@@ -180,8 +180,8 @@
       "total": 624
     },
     "capabilities.promptCaching": {
-      "filled": 561,
-      "pct": 89.9,
+      "filled": 562,
+      "pct": 90.1,
       "total": 624
     },
     "capabilities.reasoning": {
@@ -285,18 +285,18 @@
       "total": 624
     },
     "pricing.cachedInputPerMTok": {
-      "filled": 379,
-      "pct": 60.7,
+      "filled": 380,
+      "pct": 60.9,
       "total": 624
     },
     "pricing.inputPerMTok": {
-      "filled": 561,
-      "pct": 89.9,
+      "filled": 562,
+      "pct": 90.1,
       "total": 624
     },
     "pricing.outputPerMTok": {
-      "filled": 557,
-      "pct": 89.3,
+      "filled": 558,
+      "pct": 89.4,
       "total": 624
     },
     "releaseDate": {
@@ -334,7 +334,7 @@
     "_note": "有分数的 CSV 行数，仅用于确认解析器读到了东西。**不是模型数，不要当覆盖率分母用**，见 epochMatch。",
     "aime": 285,
     "arc_agi_2": 227,
-    "eci": 242,
+    "eci": 244,
     "fiction_live": 40,
     "gpqa_diamond": 305,
     "swe_bench_verified": 35,
@@ -347,7 +347,7 @@
     "algotune": 18,
     "cursorbench": 53,
     "deepswe": 69,
-    "frontier_code": 33,
+    "frontier_code": 34,
     "gso": 27,
     "mirrorcode": 9,
     "terminal_bench_2_0": 198
@@ -755,12 +755,12 @@
         "curated": true,
         "file": "epoch_capabilities_index/eci_scores.csv",
         "inEci": false,
-        "landed": 210,
+        "landed": 212,
         "multiplier": 1,
         "outOfRange": 0,
-        "rows": 268,
+        "rows": 270,
         "scoreColumn": "eci",
-        "scored": 242,
+        "scored": 244,
         "selfRun": true,
         "supersededBy": null,
         "unit": "index",
@@ -818,9 +818,9 @@
         "landed": 40,
         "multiplier": 100,
         "outOfRange": 0,
-        "rows": 42,
+        "rows": 43,
         "scoreColumn": "Main score",
-        "scored": 33,
+        "scored": 34,
         "selfRun": false,
         "supersededBy": null,
         "unit": "pct",
@@ -1592,10 +1592,10 @@
         "upstreamRows": 227
       },
       "eci": {
-        "landedModels": 210,
-        "matchedModels": 142,
-        "upstreamModels": 222,
-        "upstreamRows": 242
+        "landedModels": 212,
+        "matchedModels": 144,
+        "upstreamModels": 224,
+        "upstreamRows": 244
       },
       "fiction_live": {
         "landedModels": 41,
@@ -1877,15 +1877,15 @@
       "contextWindow": 602,
       "maxOutput": 587,
       "modalities": 609,
-      "pricing.inputPerMTok": 548,
-      "pricing.outputPerMTok": 545
+      "pricing.inputPerMTok": 549,
+      "pricing.outputPerMTok": 546
     },
     "before": {
       "contextWindow": 427,
       "maxOutput": 411,
       "modalities": 434,
-      "pricing.inputPerMTok": 360,
-      "pricing.outputPerMTok": 357
+      "pricing.inputPerMTok": 361,
+      "pricing.outputPerMTok": 358
     },
     "bySource": {
       "contextWindow": {
@@ -1919,7 +1919,7 @@
     },
     "liveModels": 609
   },
-  "generatedAt": "2026-09-30T07:21:55.755Z",
+  "generatedAt": "2026-09-30T18:33:09.208Z",
   "livebench": {
     "_note": "LiveBench 官方榜（Apache-2.0，本轮调研里许可证最干净的一份）。release 清单优先从上游仓库的 LIVE_BENCH_RELEASES 常量解析，解析失败才用内置兜底清单——写死清单意味着新 release 不会被自动发现，与「发布后无人维护」的承诺相悖。releasesSkipped 里是题目集换代之前的 release，跨那个断点分数不可比（中位差 27.6 分）。",
     "matchedModels": 123,
@@ -2005,7 +2005,7 @@
       "ok": true
     },
     "litellm": {
-      "note": "4436 条（对话类 3544 条）；用作新模型的第三方佐证，以及 models.dev 缺项时的定价/上下文兜底",
+      "note": "4438 条（对话类 3544 条）；用作新模型的第三方佐证，以及 models.dev 缺项时的定价/上下文兜底",
       "ok": true
     },
     "livebench": {
@@ -2017,7 +2017,7 @@
       "ok": true
     },
     "models.dev": {
-      "note": "models.json 434 条；api.json 225 provider / 8324 条；benchmarks[] 1082 条，已拦截 AA 血缘 174 条，非编程口径跳过 549 条",
+      "note": "models.json 434 条；api.json 225 provider / 8325 条；benchmarks[] 1082 条，已拦截 AA 血缘 174 条，非编程口径跳过 549 条",
       "ok": true
     },
     "openrouter": {
@@ -2029,14 +2029,14 @@
       "ok": true
     },
     "vercel-gateway": {
-      "note": "395 条（language 268 条）；用于新模型发现、发布日期投票，以及 models.dev 缺项时的定价/上下文/模态兜底",
+      "note": "397 条（language 268 条）；用于新模型发现、发布日期投票，以及 models.dev 缺项时的定价/上下文/模态兜底",
       "ok": true
     }
   },
   "trainingCompute": {
     "_note": "ModelRecord.trainingComputeFlop 的落地情况，来源 Epoch model_metadata.csv。闭源模型从不公布参数量，训练算力是唯一有第三方估算的「体型」代理，closedFlagships 数的是 openai / anthropic / google / xai 里有 ECI 的模型。without 如实列出没拿到的闭源旗舰——多数是 Epoch 也没估算，不是匹配问题。",
     "closedFlagships": {
-      "total": 99,
+      "total": 101,
       "withFlop": 12,
       "without": [
         "anthropic/claude-3-5-haiku-20241022",
@@ -2056,12 +2056,14 @@
         "anthropic/claude-opus-4-7",
         "anthropic/claude-opus-4-8",
         "anthropic/claude-opus-5",
+        "anthropic/claude-opus-5-5",
         "anthropic/claude-sonnet-4",
         "anthropic/claude-sonnet-4-20250514",
         "anthropic/claude-sonnet-4-5",
         "anthropic/claude-sonnet-4-5-20250929",
         "anthropic/claude-sonnet-4-6",
         "anthropic/claude-sonnet-5",
+        "anthropic/claude-sonnet-5-5",
         "google/gemini-2.0-flash",
         "google/gemini-2.5-flash",
         "google/gemini-2.5-flash-lite",
