@@ -127,7 +127,7 @@ npx tsx scripts/sync/selftest.ts   # 数据管线的 224 项纯函数自检，�
 | 发了模型实测视频之后 | 补抓 B 站视频 | `npm run bilibili` | 每个模型 2.5 秒，只抓缺的和 14 天以上的 |
 | 改过代码 | 三道闸门 | `npx tsc --noEmit` / `npx eslint src scripts` / `npx tsx scripts/sync/selftest.ts` | 约 10 秒 |
 | 发布 | 生产构建 | `NEXT_DIST_DIR=.next-build npm run build` | 约 25 秒 |
-| 发 B 站 Toy | 打包 + **必跑**自检 | `npm run toy:build && npm run toy:verify` | 约 100 秒 |
+| 发 B 站 Toy（平时 CI 自动发，见下文） | 打包 + **必跑**自检 | `npm run toy:build && npm run toy:verify` | 约 100 秒 |
 
 **发 Toy 之前一定要跑 `toy:verify`。** 它把包挂到与线上同构的版本化路径
 （`/toy/<slug>/<toyId>-v<版本号>/`，平台真实地址就长这样）下，用真实浏览器把每个控件点一遍。
@@ -138,8 +138,18 @@ npx tsx scripts/sync/selftest.ts   # 数据管线的 224 项纯函数自检，�
 `attribution.json`、`sync-report.json`。`public/sprites/` 与 `public/search-index.json`
 是从 `models.json` 现做的，不进版本库。
 
-**建仓之后这张表会缩到一行。** `.github/workflows/sync.yml` 已经写好：定时跑 `sync`、
-直推快照、失败自动开 issue。视频那条因为有风控，仍然建议手动或低频定时。
+**这张表现在基本不用人跑了。** `.github/workflows/sync.yml` 每天两次（北京时间 09:40 / 21:40）
+跑 `sync`、直推快照、失败自动开 issue。视频那条因为有风控，仍然建议手动或低频定时。
+
+**B 站 Toy 也是自动发布的**（`.github/workflows/toy.yml`，每天北京时间 10:30）。每次送审都要人工过，
+所以每天最多一次，而且只在页面内容真有变化时才送：`scripts/toy/fingerprint.ts` 算内容指纹
+（剥掉时间戳、数据来源标注这些每次同步都在动的字段），打包时写进 `.toy-pkg/toy-release.json`，
+`scripts/toy/should-publish.ts` 拿它和线上包里那一份比。上一版还在审核就跳过；**上一版被驳回就失败开 issue，
+不自动重发**。本机手动发布同样会带上指纹，两边不会重复送审。
+
+登录凭据在仓库 Secret `TOY_CLI_SESSION_TOKEN`（本机 `~/.toy/session.json` 的 `session_token`，
+CLI 认这个环境变量）。过期的表现是「判断要不要送审」那一步报「尚未登录」，更新方法写在 `toy.yml` 顶部。
+手动触发：`gh workflow run toy.yml`，加 `-f force=true` 表示内容没变也送审。
 
 ### 用户说「更新数据」时怎么做
 
@@ -722,7 +732,12 @@ OpenRouter 的 ToS 措辞极宽，公开展示 LLM 元数据的站点有被解�
    这些是站外用户的作品，不是本站的评测结论。
 6. **封面 `<img>` 必须带 `referrerPolicy="no-referrer"`**。hdslb 有防盗链：带非 bilibili 的
    Referer 去取会 403，浏览器接着报 `ERR_BLOCKED_BY_ORB`，整块图白掉。不带 Referer 反而正常。
-7. **标题风险词黑名单（`isRiskyTitle`）。** 2026-09-26 那版 Toy 以「内容审核未通过（违法违规）」被驳回，
+7. **标题风险词黑名单（`isRiskyVideo`，标题与 UP 主昵称都查）。** 2026-10-01 平台后台给出的整改口径是：
+   违法违规、诱导性描述、敏感事件或人物指向一律回避，**第三方来源不能免责**。所以除了下面这批，
+   「免费送 / 限时抢先 / 注意看简介」这类诱导、「最强 / 吊打 / 封神 / 震惊」这类夸大、点名真实人物
+   （包括用「梁圣」指代创始人）、粗口也都拦，站长自己的视频不例外。818 条留 564 条。
+   同时 Toy 版不输出指向境内打不开网站的外链（`src/lib/outbound.ts`，只在 Toy 构建生效）。
+   最早一次是 2026-09-26 那版 Toy 以「内容审核未通过（违法违规）」被驳回，
    排查下来最可疑的是视频标题：818 条里有近百条是「不翻墙 / 免魔法 / 国内使用 Claude」「中转站、代充、拼车」
    「越狱版无审查」这类绕开限制或灰色渠道的教程。现在两处都过这道闸：`pickVideos`（抓取时）
    和 `videosFor`（渲染时，所以旧数据不用重抓）。境外品牌的标题只要带「免费」也一并拦掉。
